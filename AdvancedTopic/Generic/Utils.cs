@@ -6,22 +6,35 @@ using System.Threading.Tasks;
 
 namespace AdvancedTopic.Generic
 {
-    class GenericValu<T>
+   
+    class GenericArray<T>where T:struct
     {
-        public T Value { get; set; }
-
-        public T Get()
+        private T[] arr;
+        public GenericArray(int length)
         {
-            return Value;
+            arr = new T[length];
         }
-        public void GDisplay<AnotherType>(string msg, AnotherType type)
+        public T[] Arr { get { return arr; } }
+
+        public T Get(int index)
         {
-            Console.WriteLine($"{msg}:{type}");
+            return arr[index];
+        }
+        public void SetValue(int index, T value)
+        {
+            arr[index] = value;
         }
 
     }
     class UtilityGeneric
     {
+        static void Swap<T>(ref T lhs, ref T rhs)
+        {
+            T temp;
+            temp = lhs;
+            lhs = rhs;
+            rhs = temp;
+        }
         public static T Max<T>(T first, T second) where T : IComparable
         {
             if (first.CompareTo(second) > 0)
@@ -39,7 +52,7 @@ namespace AdvancedTopic.Generic
         }
         public static bool IsBetween<T>(T test, T first, T last, bool inclusive = false) where T : IComparable
         {
-            return inclusive ? (first.CompareTo(test) <= 0) && (test.CompareTo(last) <= 0) :
+            return inclusive ? (first.CompareTo(test) < 0) && (test.CompareTo(last) < 0) :
                                (first.CompareTo(test) <= 0) && (test.CompareTo(last) <= 0);
         }
     }
@@ -53,19 +66,49 @@ namespace AdvancedTopic.Generic
             return this.Rank.CompareTo(((Book)obj).Rank);
         }
     }
-    class ObjClass<T> where T : class
+   /* class ManageList<T> where T :class
     {
-        List<T> list = new List<T>();
-        public void Add(T t)
+        List<KeyValuePair<string, List<T>>> list = new List<KeyValuePair<string, List<T>>>();
+        public List<T> this[int index]
         {
+            get {
+                if (index<0|| index > list.Count)
+                {
+                    return null;
+                }
+               
+                return list[index].Value;
+            }
+            set {
+                if (index < 0 || index > list.Count)
+                {
+                    throw new  IndexOutOfRangeException();
+                }
+                var key = list[index].Key;
+                list[index] = new KeyValuePair<string, List<T>>(key, value);
 
+            }
         }
-        public void Edit(T t)
+        public List<T> this[string index]
         {
+            get {
+                var res = list.Where(a => a.Key == index);
+                if (res.Count()>0)
+                {
+                    return res.FirstOrDefault().Value;
+                }
+                return null;
+            }
+            set {
+                var res = list.Where(a => a.Key == index);
+                if (res.Count() > 0)
+                {
+                    res.FirstOrDefault().Value=value;
+                }
 
+            }
         }
-
-    }
+    }*/
     class Book2 : IComparable
     {
         public int Year { get; set; }
@@ -73,7 +116,12 @@ namespace AdvancedTopic.Generic
         public string Name { get; set; }
 
         public int CompareTo(object obj)
-        {
+        {/*
+            0 =
+            1 >
+            -1< 
+             
+             */
             return this.Rank.CompareTo(((Book)obj).Rank);
         }
     }
