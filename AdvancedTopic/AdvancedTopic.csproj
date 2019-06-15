@@ -48,6 +48,8 @@
     <Compile Include="Events\Utile.cs" />
     <Compile Include="Generic\GenericTopic.cs" />
     <Compile Include="Generic\Utils.cs" />
+    <Compile Include="Indexer\IndexerTopic.cs" />
+    <Compile Include="Indexer\Utile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Topic.cs" />
