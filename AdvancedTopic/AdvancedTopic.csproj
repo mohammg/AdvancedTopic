@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Delegate\DelegateTopic.cs" />
+    <Compile Include="Delegate\Utile.cs" />
+    <Compile Include="Events\EventsTopic.cs" />
+    <Compile Include="Events\Utile.cs" />
     <Compile Include="Generic\GenericTopic.cs" />
     <Compile Include="Generic\Utils.cs" />
     <Compile Include="Program.cs" />

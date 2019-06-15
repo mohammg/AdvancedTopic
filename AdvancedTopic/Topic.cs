@@ -9,7 +9,9 @@ namespace AdvancedTopic
     public enum TopicEnum
     {
         Generic,
-       
+        Delegate,
+        Events
+
 
     }
     public class Topic
@@ -20,8 +22,8 @@ namespace AdvancedTopic
             //class Must inherit from ICommand interface
             //add class to list To use it
             lists.Add(TopicEnum.Generic, new Generic.GenericTopic());
-           
-
+            lists.Add(TopicEnum.Delegate, new Delegate.DelegateTopic());
+            lists.Add(TopicEnum.Events, new Events.EventsTopic());
 
         }
         public void DoIt(TopicEnum d)

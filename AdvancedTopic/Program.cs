@@ -11,7 +11,7 @@ namespace AdvancedTopic
         static void Main(string[] args)
         {
             Topic topic = new Topic();
-            topic.DoIt(TopicEnum.Generic);
+            topic.DoIt(TopicEnum.Events);
             Console.WriteLine("Press Any Key To Exist........");
             Console.ReadKey();
         }
